@@ -1,0 +1,1 @@
+This directory contains Redux's reducers, selectors and actions.
