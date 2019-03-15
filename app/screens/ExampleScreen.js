@@ -1,7 +1,7 @@
-import React, { useCallback, useReducer } from 'react'
+import React, { useReducer } from 'react'
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
 import { useMappedAction } from 'app/hooks/useMappedAction'
-import { useMappedState } from 'app/hooks/useMappedState'
+import { useSelector } from 'app/hooks/useSelector'
 import { exampleActions, exampleSelectors } from 'app/stores/example'
 import { Metrics } from 'app/theme/Metrics'
 import { Colors } from 'app/theme/Colors'
@@ -30,9 +30,7 @@ export const ExampleScreen = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const { steps, delay } = state
 
-  const mapStateToCounter = useCallback((state) => exampleSelectors.getCounter(state), [])
-  const counter = useMappedState(mapStateToCounter)
-
+  const counter = useSelector(exampleSelectors.getCounter)
   const incrementAsync = useMappedAction(exampleActions.incrementAsync)
   const reset = useMappedAction(exampleActions.reset)
 
