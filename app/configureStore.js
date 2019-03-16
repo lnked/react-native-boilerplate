@@ -35,7 +35,7 @@ export const configureStore = (rootReducer, rootSaga) => {
   const middleware = []
   const enhancers = []
 
-  const composeEnhancers = composeWithDevTools({ realtime: true, port: 8000 })
+  const composeEnhancers = composeWithDevTools({ port: 8000 })
 
   // Connect the sagas to the redux store
   const sagaMiddleware = createSagaMiddleware()
