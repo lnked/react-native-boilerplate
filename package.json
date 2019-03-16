@@ -53,6 +53,18 @@
     "sinon": "^7.2.3"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "testMatch": [
+      "**/?(*.)(spec|test).js?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-navigation|react-native-gesture-handler)/"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/jest-preprocessor.js"
+    }
   }
 }
